@@ -1,1 +1,1 @@
-console.log("e/s\"c\'a`p\\e");
+console.log("e/s\”c’a`p\\e");
