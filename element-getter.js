@@ -14,7 +14,7 @@ function getLastElement (input) {
     if (Array.isArray(input)) {
         return input[input.length-1];
     }
-    else if (input === 'string') {
+    else if (typeof input === 'string') {
         return input.charAt(input.length-1);
     }
     else {
@@ -26,7 +26,7 @@ function getElementByIndex (input, index) {
     if (Array.isArray(input)) {
         return input[index];
     }
-    else if (input === 'string') {
+    else if (typeof input === 'string') {
         return input.charAt(index);
     }
     else {
