@@ -2,7 +2,9 @@ function sumNestedArray (input){
     const flat = input.flat(Infinity);
     let result = 0;
     for(const i of flat) {
-        result += i;
+        if (Number.isInteger(i)) {
+            result += i;
+        }
     }
     return result;
 }
