@@ -24,4 +24,4 @@ function printPrettyDate (input) {
          + paddedHours + ":" + minutes + ":" + seconds + " " + amOrPm);
     return result;
 }
-console.log(printPrettyDate("1940-06-06T05:06:13.723Z"))
+//console.log(printPrettyDate("1940-06-06T05:06:13.723Z"))
