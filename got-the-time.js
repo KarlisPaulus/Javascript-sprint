@@ -20,8 +20,7 @@ function printPrettyDate (input) {
         hours = 12;
     }
     const paddedHours = hours.toString().toString().padStart(2, '0')
-    const result = ("Today is " + day + ", " + month + " " + date + ", " + year + ", " + "and the time is "
-         + paddedHours + ":" + minutes + ":" + seconds + " " + amOrPm);
+    const result = `Today is ${day}, ${month} ${date}, ${year}, and the time is ${paddedHours}:${minutes}:${seconds} ${amOrPm}`;
     return result;
 }
 //console.log(printPrettyDate("1940-06-06T05:06:13.723Z"))
