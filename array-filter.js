@@ -11,7 +11,8 @@ function filterObjectsByNameLength (input, length) {
 function compoundFilter (products) {
     const result = products.filter((product) => product.code.length > 5 && 
     !product.category.includes("special") && 
-    product.price > 30 && !product.location.includes("Underground"));
+    product.price > 50 && 
+    !product.location.includes("Underground"));
     return result;
 }
 
