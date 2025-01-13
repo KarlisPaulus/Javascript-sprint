@@ -17,14 +17,15 @@ const data = [
 
   function convertArrayOfObjectsToStrings (input) {
     return input.map(object => {
-        return `Name: ${object.name}, Age: ${object.age}, City: ${object.city}`; 
+        return Object.entries(object).map(([key, value]) => `${key.charAt(0).toUpperCase() + 
+            key.slice(1)}: ${value}`).join(', '); 
     });
   }
 
   /*
   const objects = [
     { name: "Alice", age: 30, city: "New York" },
-    { name: "Bob", age: 25, city: "Los Angeles" },
+    { firstname: "Bob", age: 25, city: "Los Angeles" },
   ]
   
   console.log(convertArrayOfObjectsToStrings(objects))
