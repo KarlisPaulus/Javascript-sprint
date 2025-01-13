@@ -1,7 +1,7 @@
 function getTotalFromShoppingBasket (input) {
     // accumulator-object that will hold the final result
     // currentValue-current element in the array
-   return input.reduce((accumulator, currentValue) => accumulator + currentValue.price,);
+   return input.reduce((accumulator, currentValue) => accumulator + currentValue.price, 0,);
 }
 /*
 const shoppingBasket = [
@@ -15,7 +15,7 @@ const shoppingBasket = [
   */
 
   function getAverageAge (input) {
-    const result = input.reduce((accumulator, currentValue) => accumulator + currentValue.age,);
+    const result = input.reduce((accumulator, currentValue) => accumulator + currentValue.age, 0,);
     const counter = input.reduce((accumulator) => accumulator + 1, 0,);
     return result / counter;
   }
