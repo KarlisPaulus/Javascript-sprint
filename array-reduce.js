@@ -15,6 +15,10 @@ const shoppingBasket = [
   */
 
   function getAverageAge (input) {
+    if (input.length === 0) {
+        return 0;
+    } 
+
     const result = input.reduce((accumulator, currentValue) => accumulator + currentValue.age, 0,);
     const counter = input.reduce((accumulator) => accumulator + 1, 0,);
     return result / counter;
