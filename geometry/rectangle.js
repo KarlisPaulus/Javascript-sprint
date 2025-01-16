@@ -13,4 +13,4 @@ export class Rectangle {
         return ((this.width + this.height)*2);
     }
 }
-rectangle = new Rectangle(5,3);
+const rectangle = new Rectangle(5,3);
