@@ -12,5 +12,5 @@ export class Rectangle {
     perimeter () {
         return ((this.width + this.height)*2);
     }
+    rectangle = new Rectangle(5,3);
 }
-const rectangle = new Rectangle(5,3);
