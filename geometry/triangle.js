@@ -1,4 +1,4 @@
-class Triangle {
+export class Triangle {
     constructor (sideA, sideB, sideC) {
         this.sideA = sideA;
         this.sideB = sideB;
@@ -14,4 +14,4 @@ class Triangle {
         return this.sideA + this.sideB + this.sideC;
     }
 }
-const triangle = new Triangle(3, 4, 5);
+export const triangle = new Triangle(3,4,5);
