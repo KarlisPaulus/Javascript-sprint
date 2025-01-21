@@ -15,6 +15,10 @@ function initializeChessboard() {
             }
 
             square.addEventListener("click", () => {
+                
+                if (previousSquare === square) {
+                    return square.style.backgroundColor = previousSquare.classList.contains("white") ? "white" : "black";;
+                }
                 if (previousSquare) {
                     previousSquare.style.backgroundColor = previousSquare.classList.contains("white") ? "white" : "black";
                 }
