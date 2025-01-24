@@ -1,0 +1,16 @@
+.letter-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+
+.letter {
+    font-size: 14px;
+    padding: 10px; 
+    cursor: pointer;
+}
+
+.selected {
+    font-weight: bold;
+}
