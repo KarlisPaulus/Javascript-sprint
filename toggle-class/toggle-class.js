@@ -2,9 +2,10 @@ const content = document.createElement("div");
 content.id = "content";
 document.body.append(content);
 
-const code = document.createElement("p");
-code.textContent = "code";
-content.appendChild(code);
+// paragraph
+const paragraph = document.createElement("p");
+paragraph.textContent = "code";
+content.appendChild(paragraph);
 
 // controls
 const controls = document.createElement("div");
@@ -19,7 +20,7 @@ controls.appendChild(bold);
 
 let isClicked = false;
 bold.addEventListener("click", () => {
-    code.classList.toggle("bold");
+    paragraph.classList.toggle("bold");
 });
 
 // italic
@@ -28,14 +29,26 @@ italic.id = "italic";
 italic.textContent = "I";
 controls.appendChild(italic);
 
+italic.addEventListener("click", () => {
+    paragraph.classList.toggle("italic");
+})
+
 // underline
 const underline = document.createElement("button");
 underline.id = "underline";
 underline.textContent = "U";
 controls.appendChild(underline);
 
+underline.addEventListener("click", () => {
+    paragraph.classList.toggle("underline");
+})
+
 // highlight
 const highlight = document.createElement("button");
 highlight.id = "highlight";
 highlight.textContent = "Highlight";
 controls.appendChild(highlight);
+
+highlight.addEventListener("click", () => {
+    paragraph.classList.toggle("highlight");
+}) 
