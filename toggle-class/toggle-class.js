@@ -50,5 +50,5 @@ highlight.textContent = "Highlight";
 controls.appendChild(highlight);
 
 highlight.addEventListener("click", () => {
-    paragraph.classList.toggle("highlight");
+    content.classList.toggle("highlight");
 }) 
