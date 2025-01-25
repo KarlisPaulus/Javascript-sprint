@@ -15,11 +15,21 @@ document.body.append(controls);
 const bold = document.createElement("button");
 bold.id = "bold";
 bold.textContent = "B";
-bold.classList.add("bold-style");
+bold.style.cssText = "font-weight: bold;";
 controls.appendChild(bold);
 
+let isClicked = false;
 bold.addEventListener("click", () => {
-    code.classList.toggle("bold-style");
+    //code.classList.toggle("bold-style");
+    
+    isClicked = !isClicked;
+    if (isClicked) {
+    code.style.cssText = "font-weight: bold;";
+    code.appendChild(bold);
+    } else {
+        code.style.cssText = "font-weight: default;"
+        controls.appendChild(bold);
+    }
 });
 
 // italic
