@@ -3,7 +3,7 @@ content.id = "content";
 document.body.append(content);
 
 const code = document.createElement("p");
-code.append("code");
+code.textContent = "code";
 content.appendChild(code);
 
 // controls
@@ -15,21 +15,11 @@ document.body.append(controls);
 const bold = document.createElement("button");
 bold.id = "bold";
 bold.textContent = "B";
-bold.style.cssText = "font-weight: bold;";
 controls.appendChild(bold);
 
 let isClicked = false;
 bold.addEventListener("click", () => {
-    //code.classList.toggle("bold-style");
-    
-    isClicked = !isClicked;
-    if (isClicked) {
-    code.style.cssText = "font-weight: bold;";
-    code.appendChild(bold);
-    } else {
-        code.style.cssText = "font-weight: default;"
-        controls.appendChild(bold);
-    }
+    code.classList.toggle("bold");
 });
 
 // italic
