@@ -36,7 +36,7 @@ function createLinks (teams) {
         const span = document.createElement("span");
         span.textContent = "[copy]"
         span.addEventListener("click", () => {
-            navigator.clipboard.writeText(a.href);
+            navigator.clipboard.writeText(team.url);
         })
         
         li.appendChild(a);
@@ -56,10 +56,10 @@ const teams = [
     },
     {
       "name": "Netherlands",
-      "url": "https://en.wikipedia.org/wiki/Netherlands_national_football_team",
+      "url": 'https://en.wikipedia.org/wiki/Curaçao…',
       "primary": "#f36c21",
       "secondary": "#ffffff"
     }
   ]
   createLinks(teams);
-*/
+  */
