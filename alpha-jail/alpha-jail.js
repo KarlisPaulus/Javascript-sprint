@@ -10,6 +10,13 @@ document.body.append(outside, inside);
 
 // for keeping track of current character
 let currentChar = null;
+let lastCursorPosX = 0;
+let lastCursorPosY = 0;
+
+document.addEventListener("mousemove", (e) => {
+    lastCursorPosX = e.clientX;
+    lastCursorPosY = e.clientY;
+})
 
 // keyboard events
 document.addEventListener("keyup", (e) => {
@@ -20,9 +27,12 @@ document.addEventListener("keyup", (e) => {
         }
         const character = document.createElement("div");
         character.classList.add("character", "follow");
-        character.textContent = e.key;
         currentChar = character;
+        currentChar.textContent = e.key;
+        currentChar.style.backgroundColor = "white";
         document.body.append(currentChar);
+        currentChar.style.left = `${lastCursorPosX - currentChar.offsetWidth / 2}px`;
+        currentChar.style.top = `${lastCursorPosY - currentChar.offsetHeight / 2}px`;
     } else if (e.key === "Escape") {
         // removing all characters
         const removeChars = document.querySelectorAll(".character");
@@ -63,4 +73,4 @@ inside.addEventListener("mouseleave", () => {
     if (currentChar && currentChar.classList.contains("follow")) {
     currentChar.classList.remove("follow");
     }
-})
+});
