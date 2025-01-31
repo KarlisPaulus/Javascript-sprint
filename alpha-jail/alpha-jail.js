@@ -45,6 +45,9 @@ document.addEventListener("keyup", (e) => {
         currentChar.style.top = `${lastCursorPosY - currentChar.offsetHeight / 2}px`;
         if (inJail) {
             character.classList.add("trapped");
+            currentChar.style.backgroundColor = "var(--orange)";
+        } else {
+            currentChar.style.backgroundColor = "white";
         }
     } else if (e.key === "Escape") {
         // removing all characters
