@@ -10,12 +10,13 @@ document.body.append(outside, inside);
 
 // for keeping track of current character
 let currentChar = null;
-let inJail = null;
+let inJail = false;
 let lastCursorPosX = 0;
 let lastCursorPosY = 0;
 
 // stores mouse position for keyup listener
-document.addEventListener("mousemove", (e) => {
+outside.addEventListener("mousemove", (e) => {
+    inJail = false;
     lastCursorPosX = e.clientX;
     lastCursorPosY = e.clientY;
 });
