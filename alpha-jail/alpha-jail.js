@@ -10,18 +10,27 @@ document.body.append(outside, inside);
 
 // for keeping track of current character
 let currentChar = null;
+let inJail = null;
 let lastCursorPosX = 0;
 let lastCursorPosY = 0;
 
+// stores mouse position for keyup listener
 document.addEventListener("mousemove", (e) => {
     lastCursorPosX = e.clientX;
     lastCursorPosY = e.clientY;
-})
+});
+
+// specially checking if movement in the inside class
+inside.addEventListener("mousemove", (e) => {
+    inJail = true;
+    lastCursorPosX = e.clientX;
+    lastCursorPosY = e.clientY;
+});
 
 // keyboard events
 document.addEventListener("keyup", (e) => {
     if (e.key >= "a" && e.key <= "z") {
-        // if already currentchar exist then remove follow class
+        // if already current character exist then remove follow class
         if (currentChar) {
             currentChar.classList.remove("follow");
         }
@@ -31,8 +40,12 @@ document.addEventListener("keyup", (e) => {
         currentChar.textContent = e.key;
         currentChar.style.backgroundColor = "white";
         document.body.append(currentChar);
+        // adds last stored mouse position to character, cursor points character center point
         currentChar.style.left = `${lastCursorPosX - currentChar.offsetWidth / 2}px`;
         currentChar.style.top = `${lastCursorPosY - currentChar.offsetHeight / 2}px`;
+        if (inJail) {
+            character.classList.add("trapped");
+        }
     } else if (e.key === "Escape") {
         // removing all characters
         const removeChars = document.querySelectorAll(".character");
@@ -44,12 +57,9 @@ document.addEventListener("keyup", (e) => {
 // listens mouse movements in the inside class
 inside.addEventListener("mousemove", (pointer) => {
     if (currentChar && currentChar.classList.contains("follow")) {
-    // calculates the center of the character
-    const charHalfWidth = currentChar.offsetWidth / 2;  
-    const charHalfHeight = currentChar.offsetHeight / 2;
     // center of the character follows the position of the cursor
-    currentChar.style.left = `${pointer.clientX - charHalfWidth}px`;
-    currentChar.style.top = `${pointer.clientY - charHalfHeight}px`;
+    currentChar.style.left = `${pointer.clientX - currentChar.offsetWidth / 2}px`;
+    currentChar.style.top = `${pointer.clientY - currentChar.offsetHeight / 2}px`;
     currentChar.style.backgroundColor = "var(--orange)";
     currentChar.classList.add("trapped");
     }
@@ -58,12 +68,9 @@ inside.addEventListener("mousemove", (pointer) => {
 // listens mouse movements in the outside class
 outside.addEventListener("mousemove", (pointer) => {
     if (currentChar && currentChar.classList.contains("follow")) {
-    // calculates the center of the character
-    const charHalfWidth = currentChar.offsetWidth / 2;
-    const charHalfHeight = currentChar.offsetHeight / 2;
     // center of the character follows the position of the cursor
-    currentChar.style.left = `${pointer.clientX - charHalfWidth}px`;
-    currentChar.style.top = `${pointer.clientY - charHalfHeight}px`;
+    currentChar.style.left = `${pointer.clientX - currentChar.offsetWidth / 2}px`;
+    currentChar.style.top = `${pointer.clientY - currentChar.offsetHeight / 2}px`;
     currentChar.style.backgroundColor = "white";
     }
 });
