@@ -6,7 +6,7 @@ outside.classList.add("outside", "zone");
 const inside = document.createElement("div");
 inside.classList.add("inside", "zone");
 
-document.body.style.overflow = "hidden";
+document.body.style.overflow = "hidden";    // prevents scrolling
 document.body.append(outside, inside);
 
 // for keeping track of current character
@@ -66,6 +66,7 @@ inside.addEventListener("mousemove", (pointer) => {
         const charWidth = currentChar.offsetWidth / 2;
         const charHeight = currentChar.offsetHeight / 2;
 
+        // make sure character stays within limits, prevents going over from edges
         let constrainedX = Math.max(rect.left + charWidth, Math.min(pointer.clientX, rect.right - charWidth));
         let constrainedY = Math.max(rect.top + charHeight, Math.min(pointer.clientY, rect.bottom - charHeight));
 
