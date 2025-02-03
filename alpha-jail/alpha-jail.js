@@ -81,10 +81,8 @@ outside.addEventListener("mousemove", (pointer) => {
 });
 
 // if pointer with character leaves inside class then removes follow class and no more follows the pointer.
-inside.addEventListener("mouseleave", (event) => {
-    const rect = inside.getBoundingClientRect();
-
-    if (currentChar && currentChar.classList.contains("follow") && event.clientX < rect.left) {
+inside.addEventListener("mouseleave", () => {
+    if (currentChar && currentChar.classList.contains("follow")) {
     currentChar.classList.remove("follow");
     }
 });
