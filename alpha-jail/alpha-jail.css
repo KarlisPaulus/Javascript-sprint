@@ -21,6 +21,8 @@ body {
 .character {
     position: absolute;
     pointer-events: none;
+    width: 20px;
+    height: 15px;
 }
 
 :root {
