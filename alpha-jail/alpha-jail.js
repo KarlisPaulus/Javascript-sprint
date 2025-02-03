@@ -6,6 +6,7 @@ outside.classList.add("outside", "zone");
 const inside = document.createElement("div");
 inside.classList.add("inside", "zone");
 
+document.body.style.overflow = "hidden";
 document.body.append(outside, inside);
 
 // for keeping track of current character
@@ -80,8 +81,10 @@ outside.addEventListener("mousemove", (pointer) => {
 });
 
 // if pointer with character leaves inside class then removes follow class and no more follows the pointer.
-inside.addEventListener("mouseleave", () => {
-    if (currentChar && currentChar.classList.contains("follow")) {
+inside.addEventListener("mouseleave", (event) => {
+    const rect = inside.getBoundingClientRect();
+
+    if (currentChar && currentChar.classList.contains("follow") && event.clientX < rect.left) {
     currentChar.classList.remove("follow");
     }
 });
