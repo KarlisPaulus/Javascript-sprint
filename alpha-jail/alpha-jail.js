@@ -62,13 +62,20 @@ document.addEventListener("keyup", (e) => {
 // listens mouse movements in the inside class
 inside.addEventListener("mousemove", (pointer) => {
     if (currentChar && currentChar.classList.contains("follow")) {
-    // center of the character follows the position of the cursor
-    currentChar.style.left = `${pointer.clientX - currentChar.offsetWidth / 2}px`;
-    currentChar.style.top = `${pointer.clientY - currentChar.offsetHeight / 2}px`;
-    currentChar.style.backgroundColor = "var(--orange)";
-    currentChar.classList.add("trapped");
+        const rect = inside.getBoundingClientRect();
+        const charWidth = currentChar.offsetWidth / 2;
+        const charHeight = currentChar.offsetHeight / 2;
+
+        let constrainedX = Math.max(rect.left + charWidth, Math.min(pointer.clientX, rect.right - charWidth));
+        let constrainedY = Math.max(rect.top + charHeight, Math.min(pointer.clientY, rect.bottom - charHeight));
+
+        currentChar.style.left = `${constrainedX - charWidth}px`;
+        currentChar.style.top = `${constrainedY - charHeight}px`;
+        currentChar.style.backgroundColor = "var(--orange)";
+        currentChar.classList.add("trapped");
     }
 });
+
 
 // listens mouse movements in the outside class
 outside.addEventListener("mousemove", (pointer) => {
